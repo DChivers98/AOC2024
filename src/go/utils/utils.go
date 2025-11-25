@@ -6,6 +6,7 @@ import (
 	"math"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func ReadFile(fileName string) string {
@@ -14,7 +15,9 @@ func ReadFile(fileName string) string {
 		panic("Failed to open file: " + err.Error())
 	}
 
-	return string(data)
+	contents := strings.TrimSpace(string(data))
+
+	return string(contents)
 }
 
 func ReadFileLines(fileName string) []string {
